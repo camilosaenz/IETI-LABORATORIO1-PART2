@@ -1,19 +1,25 @@
 package edu.eci.ieti.APISpringBootRest.dto;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import java.util.Date;
+
 public class TaskDto {
 
     private String name;
     private String description;
+    private String assignedTo;
+    @JsonFormat(shape = Shape.STRING, pattern = "dd/MM/yyyy")
+    private Date dueDate;
+    @JsonFormat(shape = Shape.STRING, pattern = "dd/MM/yyyy")
+    private Date created;
+    private Status status;
 
-    enum status{
+    enum Status{
         TODO, DOING, REVIEW, DONE
     }
 
-    private String assignedTo;
-    private String dueDate;
-    private String created;
-
-    public TaskDto(String name, String description, String assignedTo, String dueDate, String created) {
+    public TaskDto(String name, String description, String assignedTo, Date dueDate, Date created) {
         this.name = name;
         this.description = description;
         this.assignedTo = assignedTo;
@@ -45,19 +51,19 @@ public class TaskDto {
         this.assignedTo = assignedTo;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
-    public String getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 }

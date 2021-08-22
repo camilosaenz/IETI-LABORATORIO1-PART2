@@ -1,26 +1,34 @@
 package edu.eci.ieti.APISpringBootRest.data;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+
+import java.util.Date;
+
 public class Task {
 
     private String id;
     private String name;
     private String description;
+    private String assignedTo;
+    @JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date dueDate;
+    @JsonFormat(shape = Shape.STRING, pattern = "yyyy-MM-dd")
+    private Date created;
+    private Status status;
 
-    enum status{
+    enum Status{
         TODO, DOING, REVIEW, DONE
     }
 
-    private String assignedTo;
-    private String dueDate;
-    private String created;
-
-    public Task(String id, String name, String description, String assignedTo, String dueDate, String created) {
+    public Task(String id, String name, String description, String assignedTo, Date dueDate, Date created, Status status) {
         this.id = id;
         this.name = name;
         this.description = description;
         this.assignedTo = assignedTo;
         this.dueDate = dueDate;
         this.created = created;
+        this.status = status;
     }
 
     public String getId() {
@@ -55,19 +63,27 @@ public class Task {
         this.assignedTo = assignedTo;
     }
 
-    public String getDueDate() {
+    public Date getDueDate() {
         return dueDate;
     }
 
-    public void setDueDate(String dueDate) {
+    public void setDueDate(Date dueDate) {
         this.dueDate = dueDate;
     }
 
-    public String getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(String created) {
+    public void setCreated(Date created) {
         this.created = created;
+    }
+
+    public Status getStatus() {
+        return status;
+    }
+
+    public void setStatus(Status status) {
+        this.status = status;
     }
 }
