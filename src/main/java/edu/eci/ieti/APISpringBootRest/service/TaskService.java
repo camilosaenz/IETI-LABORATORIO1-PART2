@@ -1,7 +1,7 @@
 package edu.eci.ieti.APISpringBootRest.service;
 
 import edu.eci.ieti.APISpringBootRest.data.Task;
-
+import edu.eci.ieti.APISpringBootRest.dto.TaskDto;
 import java.util.List;
 
 public interface TaskService {
@@ -14,6 +14,6 @@ public interface TaskService {
 
     void deleteById( String id );
 
-    Task update( Task task, String id );
+    Task update(TaskDto task, String id );
 
 }

@@ -2,8 +2,10 @@ package edu.eci.ieti.APISpringBootRest.data;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonFormat.Shape;
-
+import edu.eci.ieti.APISpringBootRest.Status.Status;
+import edu.eci.ieti.APISpringBootRest.dto.TaskDto;
 import java.util.Date;
+import java.util.UUID;
 
 public class Task {
 
@@ -17,10 +19,6 @@ public class Task {
     private Date created;
     private Status status;
 
-    enum Status{
-        TODO, DOING, REVIEW, DONE
-    }
-
     public Task(String id, String name, String description, String assignedTo, Date dueDate, Date created, Status status) {
         this.id = id;
         this.name = name;
@@ -29,6 +27,26 @@ public class Task {
         this.dueDate = dueDate;
         this.created = created;
         this.status = status;
+    }
+
+    public Task(TaskDto taskDto) {
+        this.id = UUID.randomUUID().toString();
+        this.name = taskDto.getName();
+        this.description = taskDto.getDescription();
+        this.status = taskDto.getStatus();
+        this.assignedTo = taskDto.getAssignedTo();
+        this.dueDate = taskDto.getDueDate();
+        this.created = new Date();
+    }
+
+    public Task(TaskDto taskDto, String id) {
+        this.id =  id;
+        this.name = taskDto.getName();
+        this.description = taskDto.getDescription();
+        this.status = taskDto.getStatus();
+        this.assignedTo = taskDto.getAssignedTo();
+        this.dueDate = taskDto.getDueDate();
+        this.created = new Date();
     }
 
     public String getId() {
@@ -86,4 +104,5 @@ public class Task {
     public void setStatus(Status status) {
         this.status = status;
     }
+
 }

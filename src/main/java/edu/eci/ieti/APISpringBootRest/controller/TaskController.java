@@ -1,6 +1,7 @@
 package edu.eci.ieti.APISpringBootRest.controller;
 
 import edu.eci.ieti.APISpringBootRest.data.Task;
+import edu.eci.ieti.APISpringBootRest.dto.TaskDto;
 import edu.eci.ieti.APISpringBootRest.service.TaskService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -30,13 +31,21 @@ public class TaskController {
     }
 
     @PostMapping
-    public ResponseEntity<Task> create( @RequestBody Task task ) {
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.create(task));
+    public ResponseEntity<Task> create( @RequestBody TaskDto taskDto ) {
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(taskService.create(new Task(taskDto)));
+        }catch (Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Task> update(@RequestBody Task task, @PathVariable String id){
-        return ResponseEntity.status(HttpStatus.OK).body(taskService.update(task, id));
+    public ResponseEntity<Task> update(@RequestBody TaskDto taskDto, @PathVariable String id){
+        try{
+            return ResponseEntity.status(HttpStatus.OK).body(taskService.update(taskDto, id));
+        }catch(Exception e){
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(null);
+        }
     }
 
     @DeleteMapping( "/{id}" )
@@ -48,6 +57,5 @@ public class TaskController {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR.ordinal()).body((false));
         }
     }
-
 
 }

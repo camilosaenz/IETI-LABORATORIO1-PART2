@@ -1,0 +1,118 @@
+{
+	"info": {
+		"_postman_id": "83336979-68b8-4550-ae3b-65d17471b048",
+		"name": "IETI - LABORATORIO 1 - PART 2",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "getTask",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1045\",\r\n    \"name\":\"Operaciones\",\r\n    \"description\":\"Operacion de Gestion de Cambios\",\r\n    \"assignedTo\":\"Operations\",\r\n    \"dueDate\":\"2020-08-02\",\r\n    \"created\":\"2021-07-08\",\r\n    \"status\":\"TODO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/task",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"task"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\":\"1045\",\r\n    \"name\":\"IT\",\r\n    \"description\":\"Operacion de TI\",\r\n    \"assignedTo\":\"IT\",\r\n    \"dueDate\":\"2016-08-02\",\r\n    \"created\":\"2041-07-08\",\r\n    \"status\":\"TODO\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/task/732a3b88-8248-48d9-a2fd-c6487b695ae3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"task",
+						"732a3b88-8248-48d9-a2fd-c6487b695ae3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/v1/task/732a3b88-8248-48d9-a2fd-c6487b695ae3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"task",
+						"732a3b88-8248-48d9-a2fd-c6487b695ae3"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
