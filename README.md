@@ -89,13 +89,11 @@
 8. Implement you *TaskController* (try to avoid copy paste, use the User Microservice as reference but try doing it consciously).
 9. Test ALL the endpoints of your API using PostMan or any other tool of your preference.
 
+Toda la información sobre las pruebas realizadas en Postman estan en el siguiente enlace: [Postman](https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/IETI%20-%20LABORATORIO%201%20-%20PART%202.postman_collection.json)
+
 Se verifica la lista de tareas mediante una solicitud GET.
 
 <img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTask.png?raw=true">
-
-Se verifica la lista de tareas mediante el metodo all y una solicitud GET.
-
-<img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTaskAll.png?raw=true">
 
 Se crea una tarea mediante el metodo create y una solicitud POST.
 
@@ -111,7 +109,7 @@ Se actualiza la información de la tarea mnediante el metodo update y una solici
 
 Se vefica el cambio de la información de la tarea 101 mediante una solicitud GET.
 
-<img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTask-1.1.png?raw=true">
+<img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTask-2.png?raw=true">
 
 Se elimina una tarea mediante el metodo delete y una solicitud DELETE.
 
@@ -119,4 +117,4 @@ Se elimina una tarea mediante el metodo delete y una solicitud DELETE.
 
 Se verifica que la tarea ha sido eliminada mediante una solicitud GET.
 
-<img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTask-1.2.png?raw=true">
+<img src="https://github.com/camilosaenz/IETI-LABORATORIO1-PART2/blob/main/images/getTask-3.png?raw=true">
